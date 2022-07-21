@@ -52,6 +52,11 @@ const config: PlaywrightTestConfig = {
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
+        contextOptions: {
+          recordHar: {
+            path: './recordings/firefox/network-recording.har',
+          }
+        }
       },
     },
 
@@ -59,6 +64,11 @@ const config: PlaywrightTestConfig = {
       name: 'webkit',
       use: {
         ...devices['Desktop Safari'],
+        contextOptions: {
+          recordHar: {
+            path: './recordings/webkit/network-recording.har',
+          }
+        }
       },
     },
 
@@ -66,6 +76,14 @@ const config: PlaywrightTestConfig = {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
+        contextOptions: {
+          recordHar: {
+            path: './recordings/chrome/network-recording.har',
+            omitContent: false,
+            content: 'attach',
+            mode: 'full'
+          }
+        }
       },
     },
   ],
